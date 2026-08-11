@@ -1,0 +1,55 @@
+body, h1, p, ul {
+    margin: 0;
+}
+
+body {
+    align-items: center;
+    background-color: #00091B;
+    color: #F0FFF4;
+    display: flex;
+    font-family: 'Roboto Mono';
+    font-size: 16px;
+    height: 100vh;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+section {
+    align-items: center;
+    background-color: #021730;
+    border: 1px solid #0A2640;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    justify-content: center;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.titleDiv {
+    margin-bottom: 20px;
+}
+
+.hobbiesDiv {
+    margin-bottom: 20px;
+}
+
+img {
+    border: 1px solid #0A2640;
+    border-radius: 100%;
+    height: 300px;
+    width: 300px;
+}
+
+a {
+    color: #0F48B1;
+    font-size: 24px;
+    margin-right: 10px;
+    text-decoration: none;
+    &:hover {
+        color: #08327F;
+        cursor: pointer;
+    }
+}
