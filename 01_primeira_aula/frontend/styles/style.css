@@ -1,0 +1,126 @@
+/* 
+    # --> id
+    . --> class
+*/
+
+body {
+    background-color: #00091B;
+    color: #F0FFF4;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+}
+
+.section {
+    background-color: #021730;
+    border: 1px solid #0A2640;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+a {
+    color: #0F48B1;
+    &:hover {
+        color: #08327F;
+        cursor: pointer;
+    }
+}
+
+img, video {
+    height: auto;
+    width: 300px;
+}
+
+input, select, textarea {
+    background-color: #00091B;
+    border: 1px solid #0A2640;
+    border-radius: 5px;
+    color: #F0FFF4;
+    font-size: 16px;
+    padding: 5px;
+    &:focus {
+        outline: none;
+    }
+    &::placeholder {
+        color: #65806e;
+    }
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    color: #F0FFF4;
+    font-size: 16px;
+    height: 40px;
+    width: 80px;
+}
+
+#reset {
+    background-color: #FF383C;
+    &:hover {
+        background-color: #B91C20;
+        cursor: pointer;
+    }
+}
+
+#submit {
+    background-color: #34C759;
+    &:hover {
+        background-color: #218C3C;
+        cursor: pointer;
+    }
+}
+
+.divVsSpan {
+    background-color: #0F48B1;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.container {
+    border: 1px solid #0A2640;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.flexbox {
+    align-items: baseline; /* alinha os elementos verticalmente */
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* espaçamento entre os elementos */
+    justify-content: space-evenly; /* alinha os elementos horizontalmente */
+}
+
+.gridLayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* seta a quantidade de colunas e o tamanho delas */
+    /* grid-template-rows: ; --> seta a quantidade e o tamanho de linhas*/
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    /* place-items: center; --> "atalho" para alinhar o eixo horizontal e vertical ao mesmo tempo */
+}
+
+.item {
+    align-items: center;
+    background-color: #0F48B1;
+    border-radius: 5px;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    width: 100px;
+}
+
+.bigger {
+    height: 150px;
+}
+
+.textUp {
+    align-items: start;
+}
