@@ -1,25 +1,496 @@
-body, h1, p, ul, ol {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    align-items: center;
-    display: flex;
-    font-family: 'Roboto Mono';
-    font-size: 16px;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fffdf9;
+    color: #2b211c;
 }
 
-main {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: 100%;
-    width: 100%;
+a {
+    text-decoration: none;
+    color: inherit;
 }
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* VARIÁVEIS */
+
+:root {
+    --marrom: #754522;
+    --marrom-escuro: #4d2d18;
+    --laranja: #c65d22;
+    --creme: #fff8ee;
+    --creme-escuro: #f4eadc;
+    --cinza: #77716c;
+    --borda: #eadfd3;
+    --branco: #ffffff;
+    --amarelo: #f5b400;
+}
+
+/* HEADER */
+
+header {
+    height: 72px;
+    background-color: var(--branco);
+    border-bottom: 1px solid var(--borda);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--marrom);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-icon {
+    font-size: 32px;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+}
+
+nav a {
+    font-size: 15px;
+    color: #3f332c;
+    padding: 26px 0;
+}
+
+nav a:hover {
+    color: var(--laranja);
+    border-bottom: 2px solid var(--laranja);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.search {
+    width: 280px;
+    height: 42px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    color: #999;
+}
+
+.search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.search span {
+    font-size: 20px;
+}
+
+.favorites {
+    color: var(--marrom);
+    font-size: 14px;
+}
+
+/* CONTAINER */
 
 .container {
+    width: 95%;
+    max-width: 1600px;
+    margin: auto;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--cinza);
+    font-size: 13px;
+}
+
+.breadcrumb span:last-child {
+    color: var(--marrom);
+    font-weight: bold;
+}
+
+/* HERO */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.hero-image {
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-image img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photos-button {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    background: white;
+    color: var(--marrom);
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(0,0,0,.1);
+}
+
+.recipe-info {
+    padding: 10px;
+}
+
+.category {
+    display: inline-block;
+    background-color: var(--creme-escuro);
+    color: var(--laranja);
+    padding: 7px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.recipe-info h1 {
+    font-size: 42px;
+    color: #17120f;
+    margin-bottom: 12px;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #625b56;
+    max-width: 650px;
+}
+
+/* AVALIAÇÃO */
+
+.rating {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stars {
+    color: var(--amarelo);
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+.rating-text {
+    color: var(--cinza);
+    font-size: 14px;
+}
+
+/* BOTÃO SALVAR */
+
+.save-button {
+    display: inline-block;
+    margin-top: 18px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: var(--marrom);
+    font-weight: bold;
+    background-color: white;
+}
+
+.save-button:hover {
+    background-color: var(--creme);
+}
+
+/* INFORMAÇÕES */
+
+.recipe-details {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.detail {
+    padding: 17px;
+    text-align: center;
+    border-right: 1px solid var(--borda);
+}
+
+.detail:last-child {
+    border-right: none;
+}
+
+.detail-icon {
+    font-size: 23px;
+    color: var(--marrom);
+    margin-bottom: 5px;
+}
+
+.detail-label {
+    display: block;
+    color: var(--cinza);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* CONTEÚDO */
+
+.content {
+    display: grid;
+    grid-template-columns: 310px 1fr 310px;
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--marrom);
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.card-title span {
+    font-size: 22px;
+}
+
+/* INGREDIENTES */
+
+.portions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--creme);
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 18px;
+}
+
+.portions button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: var(--marrom);
+    font-size: 18px;
+}
+
+.ingredients {
+    list-style: none;
+}
+
+.ingredients li {
+    padding: 5px 0;
+    font-size: 13px;
+    color: #4e4844;
+}
+
+.ingredients li::before {
+    content: "•";
+    margin-right: 8px;
+    color: var(--laranja);
+}
+
+/* MODO DE PREPARO */
+
+.steps {
+    position: relative;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: 40px 55px 1fr;
+    align-items: center;
+    min-height: 58px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #f0e8df;
+    border-radius: 10px;
+}
+
+.step-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--creme-escuro);
+    color: var(--marrom);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.step-icon {
+    font-size: 25px;
+    text-align: center;
+}
+
+.step-content {
+    padding: 8px 10px;
+}
+
+.step-content h3 {
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #30251f;
+}
+
+.step-content p {
+    font-size: 11px;
+    color: var(--cinza);
+    line-height: 1.4;
+}
+
+/* DICA DO CHEF */
+
+.chef-tip {
+    background-color: var(--creme);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.chef-tip h2 {
+    color: var(--marrom);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.chef-tip p {
+    color: #655b53;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* RECEITAS RELACIONADAS */
+
+.related h2 {
+    font-size: 16px;
+    color: var(--marrom);
+    margin-bottom: 15px;
+}
+
+.related-recipe {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--borda);
+}
+
+.related-recipe:last-child {
+    border-bottom: none;
+}
+
+.related-recipe img {
+    width: 80px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.related-recipe h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.related-recipe p {
+    font-size: 10px;
+    color: var(--cinza);
+}
+
+.related-rating {
+    color: var(--amarelo);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 25px;
+    height: 65px;
+    background-color: var(--marrom-escuro);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 45px;
+}
+
+.footer-logo {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.copyright {
+    font-size: 12px;
+    opacity: .8;
+}
+
+.social {
+    display: flex;
+    gap: 15px;
+}
+
+.social span {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
 }

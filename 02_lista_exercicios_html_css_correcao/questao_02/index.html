@@ -1,63 +1,496 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Questão 02</title>
-        <link href="https://fonts.googleapis.com" rel="preconnect">
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        <title>Sabor Caseiro | Espaguete à Bolonhesa</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header></header>
-        <main>
-            <section class="container">
-                <section>
-                    <h1>Entrevero de Pinhão</h1>
-                    <p><strong>Rendimento:</strong> 6 porções</p>
-                    <p><strong>Tempo de preparo:</strong> aproximadamente 1 hora e 20 minutos</p>
-                    <p><strong>Dificuldade:</strong> média</p>
-                </section>
-                <section>
-                    <h1>Ingredientes</h1>
-                    <ul>
-                        <li>500 g de pinhão cozido, descascado e cortado ao meio</li>
-                        <li>300 g de carne bovina (alcatra ou contrafilé) em cubos</li>
-                        <li>300 g de lombo ou pernil suíno em cubos</li>
-                        <li>300 g de peito de frango em cubos</li>
-                        <li>150 g de bacon picado</li>
-                        <li>2 linguiças calabresas em rodelas</li>
-                        <li>1 cebola grande picada</li>
-                        <li>2 tomates picados</li>
-                        <li>1/2 pimentão verde picado</li>
-                        <li>1/2 pimentão vermelho picado</li>
-                        <li>1/2 pimentão amarelo picado</li>
-                        <li>3 dentes de alho picados</li>
-                        <li>1/2 xícara de cerveja pilsen</li>
-                        <li>2 colheres de sopa de manteiga ou óleo</li>
+        <header>
+            <a href="#" class="logo"><span class="logo-icon">👨‍🍳</span>Sabor Caseiro</a>
+            <nav>
+                <a href="#">Início</a>
+                <a href="#">Receitas</a>
+                <a href="#">Categorias</a>
+                <a href="#">Sobre</a>
+                <a href="#">Contato</a>
+            </nav>
+            <div class="header-right">
+                <div class="search">
+                    <input type="text" placeholder="Buscar receitas...">
+                    <span>⌕</span>
+                </div>
+                <div class="favorites">
+                    ♡ Favoritos
+                </div>
+            </div>
+        </header>
+        <main class="container">
+            <!-- BREADCRUMB -->
+            <div class="breadcrumb">
+                <span>⌂</span>
+                <span>›</span>
+                <span>Receitas</span>
+                <span>›</span>
+                <span>Massas</span>
+                <span>›</span>
+                <span>Espaguete à Bolonhesa</span>
+            </div>
+            <!-- HERO -->
+            <section class="hero">
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=1200&q=80" alt="Espaguete à bolonhesa">
+                    <div class="photos-button">
+                        🖼 Ver fotos
+                    </div>
+                </div>
+                <div class="recipe-info">
+                    <span class="category">MASSAS</span>
+                    <h1>Espaguete à Bolonhesa</h1>
+                    <p class="description">
+                        Clássico, saboroso e perfeito para qualquer ocasião.
+                        Uma receita fácil e irresistível!
+                    </p>
+                    <div class="rating">
+                        <span class="stars">
+                            ★★★★★
+                        </span>
+                        <span class="rating-text">
+                            4,8 (128 avaliações)
+                        </span>
+                    </div>
+                    <a href="#" class="save-button">♡ Salvar receita</a>
+                    <!-- DETALHES DA RECEITA -->
+                    <div class="recipe-details">
+                        <div class="detail">
+                            <div class="detail-icon">◷</div>
+                            <span class="detail-label">Tempo de preparo</span>
+                            <span class="detail-value">20 min</span>
+                        </div>
+                        <div class="detail">
+                            <div class="detail-icon">▣
+                            </div>
+                            <span class="detail-label">
+                                Tempo de cozimento
+                            </span>
+
+                            <span class="detail-value">
+                                30 min
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-icon">
+                                ♨
+                            </div>
+
+                            <span class="detail-label">
+                                Rende
+                            </span>
+
+                            <span class="detail-value">
+                                4 porções
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <div class="detail-icon">
+                                ♨
+                            </div>
+
+                            <span class="detail-label">
+                                Dificuldade
+                            </span>
+
+                            <span class="detail-value">
+                                Fácil
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 CONTEÚDO
+            ========================== -->
+
+            <section class="content">
+
+
+                <!-- =========================
+                     INGREDIENTES
+                ========================== -->
+
+                <aside class="card">
+
+                    <h2 class="card-title">
+                        <span>🛒</span>
+                        Ingredientes
+                    </h2>
+
+
+                    <div class="portions">
+
+                        <button>-</button>
+
+                        <span>
+                            Rende: 4 porções
+                        </span>
+
+                        <button>+</button>
+
+                    </div>
+
+
+                    <ul class="ingredients">
+
+                        <li>400 g de espaguete</li>
+                        <li>300 g de carne moída</li>
+                        <li>1 cebola média picada</li>
+                        <li>2 dentes de alho picados</li>
+                        <li>2 colheres de óleo</li>
+                        <li>1 lata de molho de tomate</li>
+                        <li>1/2 xícara de água</li>
                         <li>Sal a gosto</li>
                         <li>Pimenta-do-reino a gosto</li>
-                        <li>2 colheres de sopa de salsinha picada</li>
-                        <li>2 colheres de sopa de cebolinha picada</li>
+                        <li>Queijo parmesão ralado</li>
+                        <li>Folhas de manjericão</li>
+
                     </ul>
+
+                </aside>
+
+
+                <!-- =========================
+                     MODO DE PREPARO
+                ========================== -->
+
+                <section class="card">
+
+                    <h2 class="card-title">
+                        <span>👨‍🍳</span>
+                        Modo de preparo
+                    </h2>
+
+
+                    <div class="steps">
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                1
+                            </div>
+
+                            <div class="step-icon">
+                                🍝
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3>
+                                    Cozinhe o espaguete
+                                </h3>
+
+                                <p>
+                                    Em uma panela com água e sal,
+                                    cozinhe o espaguete conforme
+                                    as instruções da embalagem.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                2
+                            </div>
+
+                            <div class="step-icon">
+                                🍳
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3>
+                                    Refogue os temperos
+                                </h3>
+
+                                <p>
+                                    Aqueça o óleo e refogue a cebola
+                                    até ficar transparente. Acrescente
+                                    o alho e refogue por mais 1 minuto.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                3
+                            </div>
+
+                            <div class="step-icon">
+                                🥩
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3>
+                                    Adicione a carne
+                                </h3>
+
+                                <p>
+                                    Acrescente a carne moída e mexa
+                                    até dourar. Tempere com sal e
+                                    pimenta-do-reino.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                4
+                            </div>
+
+                            <div class="step-icon">
+                                🍅
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3>
+                                    Acrescente o molho
+                                </h3>
+
+                                <p>
+                                    Adicione o molho de tomate e a água.
+                                    Deixe cozinhar em fogo baixo por
+                                    aproximadamente 20 minutos.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                5
+                            </div>
+
+                            <div class="step-icon">
+                                🍲
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3>
+                                    Misture tudo
+                                </h3>
+
+                                <p>
+                                    Junte o espaguete cozido ao molho
+                                    e misture bem para incorporar
+                                    todos os sabores.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="step">
+
+                            <div class="step-number">
+                                6
+                            </div>
+
+                            <div class="step-icon">
+                                🧀
+                            </div>
+
+                            <div class="step-content">
+
+                                <h3>
+                                    Finalize e sirva
+                                </h3>
+
+                                <p>
+                                    Sirva com queijo parmesão ralado
+                                    e folhas de manjericão por cima.
+                                    Bom apetite!
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
                 </section>
-                <section>
-                    <h1>Modo de preparo</h1>
-                    <ol>
-                        <li>Cozinhe o pinhão: cozinhe os pinhões em água até ficarem macios. Descasque e corte-os ao meio ou em pedaços menores. Reserve.</li>
-                        <li>Prepare as carnes: corte a carne bovina, suína e o frango em cubos de tamanho semelhante. Tempere com sal e pimenta-do-reino.</li>
-                        <li>Doure o bacon e a linguiça: em uma panela grande ou frigideira funda, aqueça a manteiga ou o óleo. Frite o bacon até dourar. Acrescente a calabresa e deixe fritar por alguns minutos.</li>
-                        <li>Refogue os temperos: junte o alho e a cebola e refogue até a cebola ficar transparente. Acrescente os tomates e os pimentões.</li>
-                        <li>Adicione as carnes: coloque primeiro a carne suína e o frango e deixe dourar. Depois acrescente a carne bovina. Mexa bem para que todas as carnes cozinhem e fiquem douradas.</li>
-                        <li>Junte o pinhão: acrescente o pinhão cozido e misture cuidadosamente para não desmanchá-lo. Deixe refogar por cerca de 5 minutos.</li>
-                        <li>Acrescente a cerveja: despeje a cerveja e mexa, raspando o fundo da panela para incorporar os sabores. Cozinhe por mais 5 a 8 minutos, até o líquido reduzir.</li>
-                        <li>Finalize: desligue o fogo e misture a salsinha e a cebolinha. Prove e ajuste o sal e a pimenta.</li>
-                        <li>Sirva: o entrevero pode ser servido bem quente, acompanhado de pão francês, arroz ou uma salada simples.</li>
-                    </ol>
-                </section>
+
+
+                <!-- =========================
+                     LATERAL
+                ========================== -->
+
+                <aside>
+
+
+                    <div class="chef-tip">
+
+                        <h2>
+                            💡 Dica do Chef
+                        </h2>
+
+                        <p>
+                            Para um molho ainda mais saboroso,
+                            deixe cozinhar em fogo baixo por mais
+                            10 minutos. Acrescente folhas de
+                            manjericão fresco no final!
+                        </p>
+
+                    </div>
+
+
+                    <div class="card related">
+
+                        <h2>
+                            🍽 Receitas relacionadas
+                        </h2>
+
+
+                        <a href="#" class="related-recipe">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=300&q=80"
+                                alt="Lasanha"
+                            >
+
+                            <div>
+
+                                <h3>
+                                    Lasanha à Bolonhesa
+                                </h3>
+
+                                <p>
+                                    ◷ 1h 10 min · Médio
+                                </p>
+
+                                <div class="related-rating">
+                                    ★ 4,9
+                                </div>
+
+                            </div>
+
+                        </a>
+
+
+                        <a href="#" class="related-recipe">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=300&q=80"
+                                alt="Espaguete ao pesto"
+                            >
+
+                            <div>
+
+                                <h3>
+                                    Espaguete ao Pesto
+                                </h3>
+
+                                <p>
+                                    ◷ 20 min · Fácil
+                                </p>
+
+                                <div class="related-rating">
+                                    ★ 4,6
+                                </div>
+
+                            </div>
+
+                        </a>
+
+
+                        <a href="#" class="related-recipe">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=300&q=80"
+                                alt="Fettuccine"
+                            >
+
+                            <div>
+
+                                <h3>
+                                    Fettuccine ao Molho Branco
+                                </h3>
+
+                                <p>
+                                    ◷ 25 min · Fácil
+                                </p>
+
+                                <div class="related-rating">
+                                    ★ 4,7
+                                </div>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </aside>
+
             </section>
+
         </main>
-        <footer></footer>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer>
+
+            <div class="footer-logo">
+                👨‍🍳 Sabor Caseiro
+            </div>
+
+            <div class="copyright">
+                © 2026 Sabor Caseiro. Todos os direitos reservados.
+            </div>
+
+            <div class="social">
+                <span>◎</span>
+                <span>f</span>
+                <span>▶</span>
+            </div>
+
+        </footer>
     </body>
 </html>
