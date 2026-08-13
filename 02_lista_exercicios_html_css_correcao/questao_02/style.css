@@ -34,104 +34,12 @@ img {
     --amarelo: #f5b400;
 }
 
-/* HEADER */
-
-header {
-    height: 72px;
-    background-color: var(--branco);
-    border-bottom: 1px solid var(--borda);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--marrom);
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.logo-icon {
-    font-size: 32px;
-}
-
-nav {
-    display: flex;
-    gap: 35px;
-    align-items: center;
-}
-
-nav a {
-    font-size: 15px;
-    color: #3f332c;
-    padding: 26px 0;
-}
-
-nav a:hover {
-    color: var(--laranja);
-    border-bottom: 2px solid var(--laranja);
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.search {
-    width: 280px;
-    height: 42px;
-    border: 1px solid var(--borda);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    color: #999;
-}
-
-.search input {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    margin-right: 10px;
-}
-
-.search span {
-    font-size: 20px;
-}
-
-.favorites {
-    color: var(--marrom);
-    font-size: 14px;
-}
-
 /* CONTAINER */
 
 .container {
     width: 95%;
     max-width: 1600px;
     margin: auto;
-}
-
-/* BREADCRUMB */
-
-.breadcrumb {
-    height: 45px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--cinza);
-    font-size: 13px;
-}
-
-.breadcrumb span:last-child {
-    color: var(--marrom);
-    font-weight: bold;
 }
 
 /* HERO */
@@ -171,17 +79,6 @@ nav a:hover {
 
 .recipe-info {
     padding: 10px;
-}
-
-.category {
-    display: inline-block;
-    background-color: var(--creme-escuro);
-    color: var(--laranja);
-    padding: 7px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 12px;
 }
 
 .recipe-info h1 {
@@ -454,43 +351,4 @@ nav a:hover {
     color: var(--amarelo);
     font-size: 11px;
     margin-top: 4px;
-}
-
-/* FOOTER */
-
-footer {
-    margin-top: 25px;
-    height: 65px;
-    background-color: var(--marrom-escuro);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 45px;
-}
-
-.footer-logo {
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.copyright {
-    font-size: 12px;
-    opacity: .8;
-}
-
-.social {
-    display: flex;
-    gap: 15px;
-}
-
-.social span {
-    width: 28px;
-    height: 28px;
-    border: 1px solid rgba(255,255,255,.5);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
 }
