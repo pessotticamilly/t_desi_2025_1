@@ -1,39 +1,42 @@
 * {
     box-sizing: border-box;
-}
-
-body, h1, p, ul, ol {
     margin: 0;
     padding: 0;
 }
 
 body {
+    background-color: #fefdfc;
+    color: #432919;
     font-family: 'Open Sans';
     font-size: 16px;
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
 }
+
+/* #ac562c */
 
 main {
-    height: 100%;
-    width: 100%;
-}
-
-section {
-    height: 100%;
-    width: 100%;
-}
-
-.presentationDiv {
     align-items: center;
     display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
+.presentationSection {
+    align-items: end;
+    display: flex;
     gap: 20px;
+    height: 100%;
+    justify-content: center;
     padding: 20px;
+    width: 100%;
 }
 
 img {
     border-radius: 10px;
-    width: 25vw;
+    width: 35vw;
 }
 
 h1 {
@@ -48,8 +51,7 @@ h1 {
 }
 
 .rateDiv i {
-    font-size: 16px;
-    color: gold;
+    color: #faba13;
 }
 
 .specificationsDiv {
@@ -64,7 +66,7 @@ h1 {
 
 .specification {
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #432919;
     display: flex;
     flex-direction: column;
     padding: 20px 0 20px 0;
@@ -87,15 +89,19 @@ h1 {
 }
 
 .shareDiv {
+    border: 1px solid #432919;
+    border-radius: 10px;
     display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 20px;
 }
 
-.rouded {
-    align-items: center;
-    background-color: grey;
-    border-radius: 100%;
+.socialNetworks {
     display: flex;
-    height: 40px;
-    justify-content: center;
-    width: 40px;
+    gap: 20px;
+}
+
+.socialNetworks i {
+    background-color: #fefdfc;
 }
