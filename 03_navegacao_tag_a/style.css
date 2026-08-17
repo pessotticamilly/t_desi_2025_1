@@ -21,7 +21,7 @@ header {
     width: 100%;
 }
 
-.links {
+nav {
     display: flex;
     gap: 10px;
 }
