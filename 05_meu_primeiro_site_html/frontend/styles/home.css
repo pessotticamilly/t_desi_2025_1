@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* NATIVE TAGS */
+
+body {
+    color: #000;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    min-height: 100vh;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+nav {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    & a {
+        color: #000;
+        text-decoration: none;
+        &:hover {
+            color: #f17503;
+        };
+    }
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+/* BUTTONS */
+
+.primary-btn {
+    background-color: #f17503;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+    &:hover {
+        background-color: #b94f00;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+.secondary-btn {
+    background-color: #fff;
+    border: 1px solid #f17503;
+    border-radius: 10px;
+    color: #f17503;
+    font-size: 16px;
+    padding: 10px;
+    &:hover {
+        border: 1px solid #b94f00;
+        color: #b94f00;
+        cursor: pointer;
+    }
+}
+
+/* CLASSES */
+
+.logo-img {
+    height: 100%;
+    width: auto;
+}
+
+.active {
+    color: #f17503;
+    border-bottom: 2px solid #f17503;
+    &:hover {
+        cursor: default;
+    }
+}
+
+.hero-section {
+    align-items: center;
+    display: flex;
+    height: 40vh;
+    gap: 80px;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.hero-txt {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: auto;
+    & .title {
+        margin-bottom: 20px;
+        & h1 {
+            font-size: 48px;
+        };
+        & span {
+            color: #f17503; 
+        };
+    };
+    & .subtitle {
+        margin-bottom: 20px;
+        & p {
+            color: #aaa;
+        };
+    }
+}
+
+.hero-img {
+    height: 100%;
+    width: auto;
+}
+
+.pets-section {
+    height: 40vh;
+    margin-bottom: 20px;
+}
+
+.donation-section {
+    align-items: center;
+    background-color: #faf6f3;
+    border-radius: 20px;
+    display: flex;
+    gap: 40px;
+    height: 10vh;
+    justify-content: center;
+    padding: 20px;
+    width: auto;
+}
+
+.donation-img {
+    height: 100%;
+    width: auto;
+}
