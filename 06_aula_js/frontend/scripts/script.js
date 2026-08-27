@@ -6,8 +6,15 @@ console.log("Olá, Mundo!");
 // | VARIÁVEIS |
 // +-----------+
 
-const userName = "Ana";
-let usersList = ["Ana", "Bento", "Carlos", "Diana"];
+const userName = "Ana"; // Cria uma constante
+let usersList = ["Ana", "Bento", "Carlos", "Diana"]; // Cria uma variável
+
+// Não usar var para criar variáveis!
+
+// Principais problemas do var:
+// 1. Escopo de função (vazamento de bloco): Variáveis criadas com var dentro de um bloco como um if ou um loop for vazam para fora dele, ficando visíveis em toda a função.
+// 2. Redeclaração silenciosa: O var permite declarar a mesma variável várias vezes no mesmo escopo sem nenhum aviso ou erro, o que pode sobrescrever dados importantes por acidente.
+// 3. Elevação (Hoisting): Variáveis declaradas com var são jogadas para o topo do escopo antes de o código rodar, permitindo que você as acesse antes da linha de declaração (retornando undefined em vez de um erro claro).
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -25,10 +32,11 @@ logName(userName);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-// <p> --> tag de abertura
-// </p> --> tag de fechamento
-// Olá, Mundo! --> conteúdo
-// <p>Olá, Mundo!</p> --> elemento
+// Em "<p>Olá, Mundo!</p>" temos:
+// "<p>" --> tag de abertura
+// "</p>" --> tag de fechamento
+// "Olá, Mundo!" --> conteúdo
+// "<p>Olá, Mundo!</p>" --> elemento
 
 // +------------------------+
 // | SELETORES DE ELEMENTOS |
@@ -54,20 +62,16 @@ console.log("paragrafos[1]: " + paragrafos[1]);
 
 // querySelector() --> Seleciona o primeiro elemento que corresponde ao seletor CSS
 
-// ID
-// const titulo = document.querySelector("#titulo");
+// const titulo = document.querySelector("#titulo"); // Seleciona pelo id
 // console.log("titulo: " + titulo);
 
-// Class
-const texto = document.querySelector(".texto");
+const texto = document.querySelector(".texto"); // Seleciona pela class
 console.log("texto: " + texto);
 
-// Tag HTML
-const paragrafo = document.querySelector("p");
+const paragrafo = document.querySelector("p"); // Seleciona pela tag HTML
 console.log("paragrafo: " + paragrafo);
 
-// Elementro dentro de elemento
-const tituloMain = document.querySelector("main h1");
+const tituloMain = document.querySelector("main h1"); // Seleciona um elemento dentro de outro
 console.log("tituloMain: " + tituloMain);
 
 // querySelectorAll() --> Seleciona todos os elementos correspondente ao seletor CSS
@@ -98,13 +102,3 @@ console.log("titulo.innerHTML: " + titulo.innerHTML);
 titulo.innerHTML += "<strong>Teste</strong>";
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-// +-------------------------+
-// | MODIFICADORES DE ESTILO |
-// +-------------------------+
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-// +---------+
-// | EVENTOS |
-// +---------+
