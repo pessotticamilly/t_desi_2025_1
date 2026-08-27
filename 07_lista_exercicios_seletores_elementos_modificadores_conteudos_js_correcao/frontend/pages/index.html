@@ -5,11 +5,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Lista de Exercícios - Seletores de Elementos e Modificadores de Conteúdo JS</title>
         <link rel="stylesheet" href="../styles/style.css">
-        <script src="../scripts/script.js"></script>
+        <script src="../scripts/script.js" defer></script>
     </head>
     <body>
-        <header></header>
-        <main></main>
-        <footer></footer>
+        <header>
+            <h1 id="titulo">Loja da Turma</h1>
+            <p class="subtitulo">Os melhores produtos, direto do laboratório</p>
+        </header>
+        <main>
+            <section class="produto" id="produto-1">
+                <h2>Caneca <strong>Personalizada</strong></h2>
+                <p class="preco">R$ 29,90</p>
+                <p class="descricao">Ideal para o café da manhã. <em>Feita à mão.</em></p>
+            </section>
+            <section class="produto" id="produto-2">
+                <h2>Camiseta Dev</h2>
+                <p class="preco">R$ 59,90</p>
+                <p class="descricao">100% algodão, estampa exclusiva.</p>
+            </section>
+            <section class="produto" id="produto-3">
+                <h2>Caneca Térmica</h2>
+                <p class="preco">R$ 49,90</p>
+                <p class="descricao">Mantém a temperatura por até 6 horas.</p>
+            </section>
+            <ul id="lista-avisos">
+                <li>Frete grátis acima de R$ 100</li>
+                <li>Entrega em até 5 dias úteis</li>
+                <li class="destaque">Últimas unidades!</li>
+            </ul>
+            <div id="carrinho">
+                <span id="contador-carrinho">0</span> itens no carrinho
+            </div>
+        </main>
+        <footer>
+            <p id="rodape">Todos os direitos reservados.</p>
+        </footer>
     </body>
 </html>
