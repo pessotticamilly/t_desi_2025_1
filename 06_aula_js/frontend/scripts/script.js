@@ -1,11 +1,15 @@
 console.log("Olá, Mundo!");
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 // +-----------+
 // | VARIÁVEIS |
 // +-----------+
 
 const userName = "Ana";
 let usersList = ["Ana", "Bento", "Carlos", "Diana"];
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 // +---------+
 // | FUNÇÕES |
@@ -19,14 +23,16 @@ function logName(name) {
 // "Chama" a função --> é quando ela é executada
 logName(userName);
 
-// +------------------------+
-// | SELETORES DE ELEMENTOS |
-// +------------------------+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 // <p> --> tag de abertura
 // </p> --> tag de fechamento
 // Olá, Mundo! --> conteúdo
 // <p>Olá, Mundo!</p> --> elemento
+
+// +------------------------+
+// | SELETORES DE ELEMENTOS |
+// +------------------------+
 
 // MÉTODOS GET:
 
@@ -69,6 +75,8 @@ const textos = document.querySelectorAll(".texto");
 console.log("textos: " + textos);
 console.log("textos[2]: " + textos[2]);
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 // +---------------------------+
 // | MODIFICADORES DE CONTEÚDO |
 // +---------------------------+
@@ -88,3 +96,15 @@ const titulo = document.getElementById("titulo");
 // innerHTML --> trabalha com HTML
 console.log("titulo.innerHTML: " + titulo.innerHTML);
 titulo.innerHTML += "<strong>Teste</strong>";
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+// +-------------------------+
+// | MODIFICADORES DE ESTILO |
+// +-------------------------+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+// +---------+
+// | EVENTOS |
+// +---------+
