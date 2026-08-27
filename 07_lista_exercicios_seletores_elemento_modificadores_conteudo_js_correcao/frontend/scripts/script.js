@@ -45,7 +45,7 @@ document.querySelector('#produto-2 h2').innerHTML = 'Camiseta <strong>Dev</stron
 // Se usarmos textContent no lugar:
 // document.querySelector('#produto-2 h2').textContent = 'Camiseta <strong>Dev</strong> — Edição Limitada';
 // O resultado mostra o texto "Camiseta <strong>Dev</strong> — Edição Limitada" LITERALMENTE na tela,
-// incluindo os sinais < e >, em vez de deixar "Dev" em negrito.
+// incluindo os sinais "<" e ">, em vez de deixar "Dev" em negrito.
 // Isso acontece porque textContent trata tudo como texto puro, sem interpretar tags.
 
 // Questão 11
