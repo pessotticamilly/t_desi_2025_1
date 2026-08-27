@@ -6,7 +6,7 @@ console.log("Olá, Mundo!");
 // | VARIÁVEIS |
 // +-----------+
 
-const userName = "Ana"; // Cria uma constante
+const user = "Ana"; // Cria uma constante
 let usersList = ["Ana", "Bento", "Carlos", "Diana"]; // Cria uma variável
 
 // Não usar var para criar variáveis!
@@ -23,20 +23,20 @@ let usersList = ["Ana", "Bento", "Carlos", "Diana"]; // Cria uma variável
 // +---------+
 
 // Cria a função
-function logName(name) {
-    console.log("name: " + name);
+function logName(user) {
+    console.log("user: " + user);
 };
 
-// "Chama" a função --> é quando ela é executada
-logName(userName);
+// "Chama" a função --> É quando ela é executada
+logName(user);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 // Em "<p>Olá, Mundo!</p>" temos:
-// "<p>" --> tag de abertura
-// "</p>" --> tag de fechamento
-// "Olá, Mundo!" --> conteúdo
-// "<p>Olá, Mundo!</p>" --> elemento
+// "<p>" --> Tag de abertura
+// "</p>" --> Tag de fechamento
+// "Olá, Mundo!" --> Conteúdo
+// "<p>Olá, Mundo!</p>" --> Elemento
 
 // +------------------------+
 // | SELETORES DE ELEMENTOS |
@@ -45,39 +45,39 @@ logName(userName);
 // MÉTODOS GET:
 
 // getElementById() --> Seleciona UM elemento pelo id
-// const titulo = document.getElementById("titulo");
-// console.log("titulo: " + titulo);
+// const title = document.getElementById("title");
+// console.log("title: " + title);
 
 // getElementsByClassName() --> Seleciona elementos pela classe
-// const textos = document.getElementsByClassName("texto");
-// console.log("textos: " + textos);
-// console.log("textos[0]: " + textos[0]);
+// const texts = document.getElementsByClassName("text");
+// console.log("texts: " + texts);
+// console.log("texts[0]: " + texts[0]);
 
 // getElementsByTagName() --> Seleciona elementos pela tag HTML
-const paragrafos = document.getElementsByTagName("p");
-console.log("paragrafos: " + paragrafos);
-console.log("paragrafos[1]: " + paragrafos[1]);
+const paragraphs = document.getElementsByTagName("p");
+console.log("paragraphs: " + paragraphs);
+console.log("paragraphs[1]: " + paragraphs[1]);
 
 // MÉTODOS QUERY:
 
-// querySelector() --> Seleciona o primeiro elemento que corresponde ao seletor CSS
+// querySelector() --> Seleciona o PRIMEIRO elemento que corresponde ao seletor CSS, ou seja, seleciona apenas UM elemento
 
-// const titulo = document.querySelector("#titulo"); // Seleciona pelo id
-// console.log("titulo: " + titulo);
+// const title = document.querySelector("#title"); // Seleciona pelo id
+// console.log("title: " + title);
 
-const texto = document.querySelector(".texto"); // Seleciona pela class
-console.log("texto: " + texto);
+const text = document.querySelector(".text"); // Seleciona pela class
+console.log("text: " + text);
 
-const paragrafo = document.querySelector("p"); // Seleciona pela tag HTML
-console.log("paragrafo: " + paragrafo);
+const paragraph = document.querySelector("p"); // Seleciona pela tag HTML
+console.log("paragraph: " + paragraph);
 
-const tituloMain = document.querySelector("main h1"); // Seleciona um elemento dentro de outro
-console.log("tituloMain: " + tituloMain);
+// const section = document.querySelector("main section"); // Seleciona um elemento dentro de outro
+// console.log("section: " + section);
 
-// querySelectorAll() --> Seleciona todos os elementos correspondente ao seletor CSS
-const textos = document.querySelectorAll(".texto");
-console.log("textos: " + textos);
-console.log("textos[2]: " + textos[2]);
+// querySelectorAll() --> Seleciona TODOS os elementos correspondente ao seletor CSS
+const texts = document.querySelectorAll(".text");
+console.log("texts: " + texts);
+console.log("texts[2]: " + texts[2]);
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -85,20 +85,21 @@ console.log("textos[2]: " + textos[2]);
 // | MODIFICADORES DE CONTEÚDO |
 // +---------------------------+
 
-// Formas de ler e alterar conteúdos de um elemento HTML
+// Formas de ler ou alterar conteúdos de um elemento HTML
 
-const titulo = document.getElementById("titulo");
+const title = document.getElementById("title");
 
-// textContent --> pega ou altera o TEXTO que está dentro do elemento, independente se estiver visível ou não
-// console.log("titulo.textContent: " + titulo.textContent); // lê o conteúdo 
-// titulo.textContent = "<strong>Teste</strong>"; // altera o conteúdo
+// textContent --> Pega ou altera o TEXTO que está dentro do elemento, independente se estiver visível ou não
+console.log("title.textContent: " + title.textContent); // lê o conteúdo 
+title.textContent = "Título alterado pelo textContent"; // altera o conteúdo
 
 // innerText --> igual ao textContent, mas, só pega o que está visível na tela
-// console.log("titulo.innerText: " + titulo.innerText);
-// titulo.innerText = "Título Alterado"
+console.log("title.innerText: " + title.innerText);
+title.innerText = "Título alterado pelo innerText";
 
 // innerHTML --> trabalha com HTML
-console.log("titulo.innerHTML: " + titulo.innerHTML);
-titulo.innerHTML += "<strong>Teste</strong>";
+const section = document.querySelector("section");
+console.log("section.innerHTML: " + section.innerHTML);
+section.innerHTML += "<p><strong>Teste</strong></p>";
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
