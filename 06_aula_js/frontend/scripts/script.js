@@ -104,6 +104,10 @@ section.innerHTML += "<p><strong>Teste</strong></p>";
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
+// +-------------------------+
+// | MODIFICADORES DE ESTILO |
+// +-------------------------+
+
 // classList --> Representa a lista de classes CSS que um elemento possui
 
 const body = document.querySelector("body");
@@ -135,10 +139,10 @@ body.style.marginTop = "100px"
 const button = document.getElementById("button");
 
 button.addEventListener("click", () => {
-    // if (!body.classList.contains("dark-theme")) {
-    //     body.classList.add("dark-theme")
-    // } else {
+    // if (body.classList.contains("dark-theme")) {
     //     body.classList.remove("dark-theme")
+    // } else {
+    //     body.classList.add("dark-theme")
     // }
 
     body.classList.toggle("dark-theme")
