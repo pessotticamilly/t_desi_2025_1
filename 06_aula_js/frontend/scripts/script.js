@@ -103,3 +103,47 @@ console.log("section.innerHTML: " + section.innerHTML);
 section.innerHTML += "<p><strong>Teste</strong></p>";
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+// classList --> Representa a lista de classes CSS que um elemento possui
+
+const body = document.querySelector("body");
+
+// contains() --> Verifica se possui a classe
+console.log(body.classList.contains("dark-theme"));
+
+// add() --> Adiciona uma classe
+body.classList.add("dark-theme");
+
+// remove() --> Remove uma classe
+body.classList.remove("dark-theme");
+
+// toggle() --> Adiciona OU remove uma classe
+// tem = remove
+// não tem = adiciona
+body.classList.toggle("dark-theme")
+
+// style
+
+body.style.marginTop = "100px"
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+// +---------+
+// | EVENTOS |
+// +---------+
+
+const button = document.getElementById("button");
+
+button.addEventListener("click", () => {
+    // if (!body.classList.contains("dark-theme")) {
+    //     body.classList.add("dark-theme")
+    // } else {
+    //     body.classList.remove("dark-theme")
+    // }
+
+    body.classList.toggle("dark-theme")
+})
+
+// function mostrarMensagem() {
+//     alert("Olá!");
+// }
