@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-6">
                         <label for="cpfInput" class="form-label">CPF: </label>
-                        <input id="cpfInput" class="form-control" type="number" maxlength="14">
+                        <input id="cpfInput" class="form-control" type="text" inputmode="numeric" maxlength="14">
                     </div>
                     <div class="col-6">
                         <label for="birthDateInput" class="form-label">Data de nascimento: </label>
@@ -30,12 +30,12 @@
                         <label for="phoneNumberInput" class="form-label">Telefone: </label>
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">+55</span>
-                            <input id="phoneNumberInput" class="form-control" type="number" aria-describedby="basic-addon1" maxlength="15">
+                            <input id="phoneNumberInput" class="form-control" type="text" inputmode="tel" aria-describedby="basic-addon1" maxlength="15">
                         </div>
                     </div>
                     <div class="col-6">
                         <label for="gender" class="form-label">Gênero: </label>
-                        <select class="form-select" id="gender" required>
+                        <select class="form-select" id="gender">
                             <option value="male" selected>Masculino</option>
                             <option value="female">Feminino</option>
                             <option value="other">Outro</option>
@@ -44,7 +44,7 @@
                     <h1>Endereço</h1>
                     <div class="col-4">
                         <label for="cepInput" class="form-label">CEP: </label>
-                        <input id="cepInput" class="form-control" type="number" maxlength="9">
+                        <input id="cepInput" class="form-control" type="text" inputmode="numeric" maxlength="9">
                     </div>
                     <div class="col-8">
                         <label for="countryInput" class="form-label">País: </label>
