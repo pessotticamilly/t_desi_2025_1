@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../styles/mascara-input.css">
+        <script src="../scripts/mascara-input.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <section>
+                <form class="row" action="">
+                    <h1>Dados pessoais</h1>
+                    <div class="col-12">
+                        <label for="fullNameInput" class="form-label">Nome completo: </label>
+                        <input id="fullNameInput" class="form-control" type="text">
+                    </div>
+                    <div class="col-6">
+                        <label for="cpfInput" class="form-label">CPF: </label>
+                        <input id="cpfInput" class="form-control" type="number" maxlength="14">
+                    </div>
+                    <div class="col-6">
+                        <label for="birthDateInput" class="form-label">Data de nascimento: </label>
+                        <input id="birthDateInput" class="form-control" type="date">
+                    </div>
+                    <div class="col-6">
+                        <label for="phoneNumberInput" class="form-label">Telefone: </label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">+55</span>
+                            <input id="phoneNumberInput" class="form-control" type="number" aria-describedby="basic-addon1" maxlength="15">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="gender" class="form-label">Gênero: </label>
+                        <select class="form-select" id="gender" required>
+                            <option value="male" selected>Masculino</option>
+                            <option value="female">Feminino</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                    <h1>Endereço</h1>
+                    <div class="col-4">
+                        <label for="cepInput" class="form-label">CEP: </label>
+                        <input id="cepInput" class="form-control" type="number" maxlength="9">
+                    </div>
+                    <div class="col-8">
+                        <label for="countryInput" class="form-label">País: </label>
+                        <input id="countryInput" class="form-control" type="text" disabled>
+                    </div>
+                    <div class="col-4">
+                        <label for="stateInput" class="form-label">Estado: </label>
+                        <input id="stateInput" class="form-control" type="text">
+                    </div>
+                    <div class="col-4">
+                        <label for="neighborhoodInput" class="form-label">Bairro: </label>
+                        <input id="neighborhoodInput" class="form-control" type="text">
+                    </div>
+                    <div class="col-4">
+                        <label for="cityInput" class="form-label">Cidade: </label>
+                        <input id="cityInput" class="form-control" type="text">
+                    </div>
+                    <div class="col-10">
+                        <label for="streetInput" class="form-label">Rua/Logradouro: </label>
+                        <input id="streetInput" class="form-control" type="text">
+                    </div>
+                    <div class="col-2">
+                        <label for="houseNumberInput" class="form-label">Número: </label>
+                        <input id="houseNumberInput" class="form-control" type="number">
+                    </div>
+                    <div class="col-12">
+                        <label for="complementInput" class="form-label">Complemento: </label>
+                        <input id="complementInput" class="form-control" type="text">
+                    </div>
+                    <h1>Usuário</h1>
+                    <div class="col-12">
+                        <label for="emailInput" class="form-label">E-mail: </label>
+                        <input id="emailInput" class="form-control" type="email">
+                    </div>
+                    <div class="col-12">
+                        <label for="passwordInput" class="form-label">Senha: </label>
+                        <input id="passwordInput" class="form-control" type="password">
+                    </div>
+                    <div class="col-12">
+                        <label for="confirmPasswordInput" class="form-label">Confirmar senha: </label>
+                        <input id="confirmPasswordInput" class="form-control" type="password">
+                    </div>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>

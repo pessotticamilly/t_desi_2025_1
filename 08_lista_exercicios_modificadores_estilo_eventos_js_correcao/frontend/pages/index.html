@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Exercícios - Modificadores de Estilo e Eventos JS</title>
+        <link rel="stylesheet" href="../styles/style.css">
+        <script src="../scripts/script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1 id="titulo">Loja da Turma</h1>
+            <button id="btn-tema">Modo escuro</button>
+        </header>
+        <main>
+            <section class="produto" id="produto-1">
+                <h2>Caneca Personalizada</h2>
+                <p class="preco">R$ 29,90</p>
+                <button id="btn-favoritar-1">Favoritar</button>
+            </section>
+            <section class="produto" id="produto-2">
+                <h2>Camiseta Dev</h2>
+                <p class="preco">R$ 59,90</p>
+                <button id="btn-favoritar-2">Favoritar</button>09
+            </section>
+            <div id="caixa-mensagem" class="escondido">
+                Mensagem aparece aqui
+            </div>
+            <img id="imagem-produto" src="https://via.placeholder.com/150" alt="Produto em destaque">
+            <form id="form-contato">
+                <label for="campo-email">Seu e-mail: </label>
+                <input type="email" id="campo-email" placeholder="nome@email.com">
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="feedback-form"></p>
+            <input type="text" id="campo-busca" placeholder="Digite para buscar...">
+            <p id="resultado-busca"></p>
+        </main>
+    </body>
+</html>
