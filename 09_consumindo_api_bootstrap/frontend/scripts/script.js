@@ -1,20 +1,33 @@
-const cep = document.getElementById("cep");
-const estado = document.getElementById("estado");
-const cidade = document.getElementById("cidade");
-const bairro = document.getElementById("bairro");
-const rua = document.getElementById("rua");
+const inputCep = document.getElementById("cep");
+const inputEstado = document.getElementById("estado");
+const inputCidade = document.getElementById("cidade");
+const inputBairro = document.getElementById("bairro");
+const inputRua = document.getElementById("rua");
 
-cep.addEventListener("blur", async () => {
+inputCep.addEventListener("blur", async () => {
     try {
+        const cep = inputCep.value;
+
+        if (cep.lenght != 8) {
+            alert("502\nBad Request");
+            return;
+        };
+
         // const response = await fetch(url)
         // viacep.com.br/ws/01001000/json/
-        const response = await fetch(`https://viacep.com.br/ws/${cep.value}/json/`);
+
+        const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const data = await response.json();
 
-        estado.value = data.estado;
-        cidade.value = data.localidade;
-        bairro.value = data.bairro;
-        rua.value = data.logradouro
+        if (data.erro) {
+            alert("404\nNot Found");
+            return;
+        };
+
+        inputEstado.value = data.estado;
+        inputCidade.value = data.localidade;
+        inputBairro.value = data.bairro;
+        inputRua.value = data.logradouro
     } catch (error) {
         console.log("Erro tentando buscar CEP:\n" + error);
         alert("500\nServidor Error")
