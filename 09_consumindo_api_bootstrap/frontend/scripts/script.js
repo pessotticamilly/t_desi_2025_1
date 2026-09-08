@@ -6,13 +6,6 @@ const inputRua = document.getElementById("rua");
 
 inputCep.addEventListener("blur", async () => {
     try {
-        const cep = inputCep.value;
-
-        if (cep.lenght != 8) {
-            alert("502\nBad Request");
-            return;
-        };
-
         // const response = await fetch(url)
         // viacep.com.br/ws/01001000/json/
 
