@@ -3,13 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mask Input</title>
+        <title>Sign Up</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="../styles/maskInput.css">
-        <script src="../scripts/maskInput.js" defer></script>
+        <link rel="stylesheet" href="../styles/signUp.css">
+        <script src="../scripts/signUp.js" defer></script>
     </head>
-    <body>
+    <body data-theme="light">
+        <header>
+            <button id="themeButton">Change Theme</button>
+        </header>
         <main>
             <section>
                 <form class="row" action="">
@@ -30,7 +33,8 @@
                         <label for="phoneNumberInput" class="form-label">Telefone: </label>
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">+55</span>
-                            <input id="phoneNumberInput" class="form-control" type="text" inputmode="tel" aria-describedby="basic-addon1" maxlength="15">
+                            <input id="phoneNumberInput" class="form-control" type="text" inputmode="tel"
+                                aria-describedby="basic-addon1" maxlength="15">
                         </div>
                     </div>
                     <div class="col-6">
@@ -90,5 +94,6 @@
                 </form>
             </section>
         </main>
+        <footer></footer>
     </body>
 </html>
