@@ -1,0 +1,223 @@
+:root {
+    /* Cores principais */
+    --color-primary: #ef5350;
+    --color-secondary: #3b4cca;
+
+    /* Fundo */
+    --color-background: #f5f5f5;
+    --color-white: #ffffff;
+
+    /* Texto */
+    --color-text: #333333;
+    --color-text-light: #777777;
+
+    /* Bordas */
+    --color-border: #dddddd;
+
+    /* Tipos Pokémon */
+    --type-normal: #a8a77a;
+    --type-fire: #ee8130;
+    --type-water: #6390f0;
+    --type-electric: #f7d02c;
+    --type-grass: #7ac74c;
+    --type-ice: #96d9d6;
+    --type-fighting: #c22e28;
+    --type-poison: #a33ea1;
+    --type-ground: #e2bf65;
+    --type-flying: #a98ff3;
+    --type-psychic: #f95587;
+    --type-bug: #a6b91a;
+    --type-rock: #b6a136;
+    --type-ghost: #735797;
+    --type-dragon: #6f35fc;
+    --type-dark: #705746;
+    --type-steel: #b7b7ce;
+    --type-fairy: #d685ad;
+
+    /* Card */
+    --card-radius: 16px;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.header {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.filters {
+    background-color: var(--color-white);
+    border-radius: var(--card-radius);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+}
+
+.pokemon-card {
+    border: none;
+    border-radius: var(--card-radius);
+    color: white;
+    cursor: pointer;
+    min-height: 250px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pokemon-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    transform: translateY(-6px);
+}
+
+.pokemon-number {
+    font-size: 0.85rem;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.pokemon-image {
+    display: block;
+    height: 140px;
+    margin: 0 auto;
+    object-fit: contain;
+    width: 140px;
+}
+
+.pokemon-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.type-badge {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-transform: uppercase;
+}
+
+.type-normal {
+    background-color: var(--type-normal);
+}
+
+.type-fire {
+    background-color: var(--type-fire);
+}
+
+.type-water {
+    background-color: var(--type-water);
+}
+
+.type-electric {
+    background-color: var(--type-electric);
+}
+
+.type-grass {
+    background-color: var(--type-grass);
+}
+
+.type-ice {
+    background-color: var(--type-ice);
+}
+
+.type-fighting {
+    background-color: var(--type-fighting);
+}
+
+.type-poison {
+    background-color: var(--type-poison);
+}
+
+.type-ground {
+    background-color: var(--type-ground);
+}
+
+.type-flying {
+    background-color: var(--type-flying);
+}
+
+.type-psychic {
+    background-color: var(--type-psychic);
+}
+
+.type-bug {
+    background-color: var(--type-bug);
+}
+
+.type-rock {
+    background-color: var(--type-rock);
+}
+
+.type-ghost {
+    background-color: var(--type-ghost);
+}
+
+.type-dragon {
+    background-color: var(--type-dragon);
+}
+
+.type-dark {
+    background-color: var(--type-dark);
+}
+
+.type-steel {
+    background-color: var(--type-steel);
+}
+
+.type-fairy {
+    background-color: var(--type-fairy);
+}
+
+.modal-pokemon-image {
+    height: 200px;
+    object-fit: contain;
+    width: 200px;
+}
+
+.modal-type {
+    border-radius: 20px;
+    color: white;
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 3px;
+    padding: 6px 14px;
+    text-transform: uppercase;
+}
+
+.stat-row {
+    margin-bottom: 12px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.stat-bar {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    background-color: var(--color-primary);
+    height: 100%;
+}
+
+@media (max-width: 576px) {
+    .pokemon-image {
+        height: 110px;
+        width: 110px;
+    }
+
+    .pokemon-card {
+        min-height: 210px;
+    }
+}
