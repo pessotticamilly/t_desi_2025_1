@@ -10,5 +10,5 @@ app.use(produtosRoute);
 app.use(clientesRoute);
 
 app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`)
+    console.log(`Servidor rodando na porta: ${PORT}\nhttp://localhost:${PORT}`)
 });
