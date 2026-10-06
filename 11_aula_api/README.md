@@ -1,0 +1,19 @@
+/backend
+    /node_modules
+    /src
+        /config
+            /database
+                connection.js
+                script.sql
+        /controllers
+            clientesController.js
+            produtosController.js
+        /models
+        /routes
+        app.js
+        server.js
+    .env
+    .env.example
+    .gitignore
+    package-lock.json
+    package.json
