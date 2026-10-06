@@ -64,4 +64,4 @@ module.exports = {
     criarProduto,
     editarProduto,
     excluirProduto
-}
+};
