@@ -18,7 +18,7 @@ const buscarPorId = async (id) => {
 }
 
 const criar = async (nome, marca, preco) => {
-    const produto = await db.query(
+    const [produto] = await db.query(
         "INSERT INTO produtos (nome, marca, preco) VALUES (?, ?, ?);",
         [nome, marca, preco]
     );

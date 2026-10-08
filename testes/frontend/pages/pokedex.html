@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokédex</title>
+        <link rel="stylesheet" href="../styles/pokedex.css">
+        <script src="../scripts/pokedex.js" defer></script>
+    </head>
+    <body>
+        <div class="app">
+            <aside class="sidebar">
+                <div class="logo-area">
+                    <div class="pokeball-logo">
+                        <div class="pokeball-top"></div>
+                        <div class="pokeball-center">
+                            <span></span>
+                        </div>
+                    </div>
+                    <h1>Pokédex</h1>
+                    <p>Explore the Pokémon world!</p>
+                </div>
+                <nav class="menu">
+                    <button class="menu-item active" id="menuAll">
+                        <span class="menu-icon">⌂</span>
+                        <span>All Pokémon</span>
+                    </button>
+                    <button class="menu-item" id="menuFavorites">
+                        <span class="menu-icon">♡</span>
+                        <span>Favorites</span>
+                    </button>
+                </nav>
+            </aside>
+            <main class="main-content">
+                <!-- CABEÇALHO / FILTROS -->
+                <header class="toolbar">
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input type="text" id="searchInput" placeholder="Search by name or number...">
+                    </div>
+                    <div class="sort-box">
+                        <label for="sortSelect">Order by</label>
+                        <select id="sortSelect">
+                            <option value="number">Index</option>
+                            <option value="name">Name A-Z</option>
+                            <option value="name-desc">Name Z-A</option>
+                        </select>
+                    </div>
+                    <button class="filter-button" id="filterButton">⚱</button>
+                </header>
+                <!-- FILTROS DE TIPO -->
+                <div class="type-filters" id="typeFilters">
+                    <button class="type-filter active" data-type="all">All</button>
+                    <button class="type-filter" data-type="normal">Normal</button>
+                    <button class="type-filter" data-type="fire">Fire</button>
+                    <button class="type-filter" data-type="water">Water</button>
+                    <button class="type-filter" data-type="grass">Grass</button>
+                    <button class="type-filter" data-type="electric">Electric</button>
+                    <button class="type-filter" data-type="ice">Ice</button>
+                    <button class="type-filter" data-type="fighting">Fighting</button>
+                    <button class="type-filter" data-type="poison">Poison</button>
+                    <button class="type-filter" data-type="ground">Ground</button>
+                    <button class="type-filter" data-type="flying">Flying</button>
+                    <button class="type-filter" data-type="psychic">Psychic</button>
+                    <button class="type-filter" data-type="bug">Bug</button>
+                    <button class="type-filter" data-type="rock">Rock</button>
+                    <button class="type-filter" data-type="ghost">Ghost</button>
+                    <button class="type-filter" data-type="dragon">Dragon</button>
+                    <button class="type-filter" data-type="steel">Steel</button>
+                    <button class="type-filter" data-type="dark">Dark</button>
+                    <button class="type-filter" data-type="fairy">Fairy</button>
+                </div>
+                <!-- GRID -->
+                <section class="pokemon-grid" id="pokemonGrid"></section>
+                <!-- LOADING -->
+                <div class="loading" id="loading">
+                    <div class="pokeball-loader"></div>
+                    <p>Loading Pokémon...</p>
+                </div>
+                <!-- MENSAGEM VAZIA -->
+                <div class="empty-state" id="emptyState">
+                    <div>🔎</div>
+                    <h2>Any Pokémon found...</h2>
+                    <p>Try searching by another name or number.</p>
+                </div>
+                <!-- RODAPÉ -->
+                <footer class="pagination-area">
+                    <div class="total">
+                        <span>◉</span>
+                        <span id="totalPokemon">Total Pokémon: 1.025</span>
+                    </div>
+                    <div class="pagination" id="pagination"></div>
+                </footer>
+            </main>
+            <!-- PAINEL DE DETALHES -->
+            <aside class="details-panel" id="detailsPanel">
+                <button class="back-button" id="closeDetails">← Come back to list</button>
+                <button class="favorite-detail" id="favoriteDetail">♡</button>
+                <!-- IMAGEM PRINCIPAL -->
+                <div class="details-hero">
+                    <img id="detailImage" src="" alt="">
+                    <div class="details-number" id="detailNumber">#025</div>
+                    <h2 id="detailName">Pikachu</h2>
+                    <div class="detail-types" id="detailTypes">
+                    </div>
+                </div>
+                <!-- INFORMAÇÕES -->
+                <div class="details-body d-none">
+                    <!-- CARACTERÍSTICAS -->
+                    <div class="characteristics">
+                        <div class="characteristic">
+                            <span class="characteristic-icon">↕</span>
+                            <div>
+                                <small>Height</small>
+                                <strong id="detailHeight">0,4 m</strong>
+                            </div>
+                        </div>
+                        <div class="characteristic">
+                            <span class="characteristic-icon">♙</span>
+                            <div>
+                                <small>Weight</small>
+                                <strong id="detailWeight">6,0 kg</strong>
+                            </div>
+                        </div>
+                        <div class="characteristic">
+                            <span class="characteristic-icon">☆</span>
+                            <div>
+                                <small>Ability</small>
+                                <strong id="detailAbility">Static</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- DESCRIÇÃO -->
+                    <div class="detail-section">
+                        <h3>Detail Description</h3>
+                        <p id="detailDescription"></p>
+                    </div>
+                    <!-- STATUS -->
+                    <div class="detail-section">
+                        <h3>Stats</h3>
+                        <div class="stats" id="stats"></div>
+                    </div>
+                    <!-- EVOLUÇÕES -->
+                    <div class="detail-section">
+                        <h3>Evolution</h3>
+                        <div class="evolution" id="evolution"></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </body>
+</html>
