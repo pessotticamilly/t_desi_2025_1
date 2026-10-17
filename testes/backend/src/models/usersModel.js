@@ -1,77 +1,54 @@
-const database = require("../config/database/connection");
+const db = require("../config/database/connection");
 
-// cpf, full_name, birth_date, email, phone_number, password
+async function create({ cpf, cpfIv, cpfTag, fullName, birthDate, email, phoneNumber, passwordSalt, passwordHash }) {
+    const sql = `
+        INSERT INTO users
+        (cpf, cpf_iv, cpf_tag, full_name, birth_date, email, phone_number, password_salt, password_hash)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-const getAllUsers = async () => {
-    const [users] = await database.query(
-        `SELECT * 
-        FROM users`
-    );
+    const [result] = await db.execute(sql, [
+        cpf, cpfIv, cpfTag, fullName, birthDate, email, phoneNumber, passwordSalt, passwordHash,
+    ]);
 
-    return users;
-};
+    return result.insertId;
+}
 
-const getUserById = async (id) => {
-    const [user] = await database.query(
-        `SELECT * 
-        FROM users WHERE id = ?`,
-        [id]
-    );
+// Na listagem não trazemos CPF nem dados de senha
+async function findAll() {
+    const sql = `SELECT id, full_name, birth_date, email, phone_number FROM users`;
+    const [rows] = await db.execute(sql);
 
-    return user;
-};
+    return rows;
+}
 
-const createUser = async (cpf, full_name, birth_date, email, phone_number, password) => {
-    const [user] = await database.query(
-        `INSERT INTO users (cpf, full_name, birth_date, email, phone_number, password)
-        VALUES (?, ?, ?, ?, ?, ?)`,
-        [cpf, full_name, birth_date, email, phone_number, password]
-    );
+// Traz o CPF cifrado (com iv e tag) para o controller poder descriptografar
+async function findById(id) {
+    const sql = `
+        SELECT id, cpf, cpf_iv, cpf_tag, full_name, birth_date, email, phone_number
+        FROM users
+        WHERE id = ?`;
+    const [rows] = await db.execute(sql, [id]);
 
-    return {
-        id: user.insertId,
-        cpf,
-        full_name,
-        birth_date,
-        email,
-        phone_number,
-        password
-    };
-};
+    return rows[0]; // undefined se não existir
+}
 
-const updateUser = async (id, cpf, full_name, birth_date, email, phone_number, password) => {
-    const [user] = await database.query(
-        `UPDATE users 
-        SET cpf = ?, full_name = ?, birth_date = ?, email = ?, phone_number = ?, password = ?
-        WHERE id = ?`,
-        [cpf, full_name, birth_date, email, phone_number, password, id]
-    );
+async function update(id, { cpf, cpfIv, cpfTag, fullName, birthDate, email, phoneNumber }) {
+    const sql = `
+        UPDATE users
+        SET cpf = ?, cpf_iv = ?, cpf_tag = ?, full_name = ?, birth_date = ?, email = ?, phone_number = ?
+        WHERE id = ?`;
 
-    return {
-        id,
-        cpf,
-        full_name,
-        birth_date,
-        email,
-        phone_number,
-        password
-    };
-};
-
-const deleteUser = async (id) => {
-    const [result] = await database.query(
-        `DELETE FROM users
-        WHERE id = ?`,
-        [id]
-    );
+    const [result] = await db.execute(sql, [
+        cpf, cpfIv, cpfTag, fullName, birthDate, email, phoneNumber, id,
+    ]);
 
     return result.affectedRows;
-};
+}
 
-module.exports = {
-    getAllUsers,
-    getUserById,
-    createUser,
-    updateUser,
-    deleteUser
-};
+async function remove(id) {
+    const [result] = await db.execute(`DELETE FROM users WHERE id = ?`, [id]);
+
+    return result.affectedRows;
+}
+
+module.exports = { create, findAll, findById, update, remove };
