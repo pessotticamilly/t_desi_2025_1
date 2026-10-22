@@ -7,35 +7,6 @@ function isDuplicateError(error) {
     return error.code === "ER_DUP_ENTRY";
 }
 
-async function create(req, res) {
-    try {
-        const { fullName, birthDate, email, phoneNumber, password, cpf } = req.body;
-
-        const { salt, hash } = await generatePasswordHash(password); // sem volta
-        const { iv, tag, encryptedValue } = encrypt(cpf);            // com volta
-
-        const id = await userModel.create({
-            cpf: encryptedValue,
-            cpfIv: iv,
-            cpfTag: tag,
-            fullName,
-            birthDate,
-            email,
-            phoneNumber,
-            passwordSalt: salt,
-            passwordHash: hash,
-        });
-
-        return res.status(201).json({ message: "Usuário cadastrado com sucesso!", id });
-    } catch (error) {
-        if (isDuplicateError(error)) {
-            return res.status(409).json({ error: "E-mail ou telefone já cadastrado." });
-        }
-        console.error(error);
-        return res.status(500).json({ error: "Erro ao cadastrar usuário." });
-    }
-}
-
 async function getAll(req, res) {
     try {
         const users = await userModel.findAll();
@@ -55,42 +26,38 @@ async function getById(req, res) {
         }
 
         // só aqui o CPF volta a ser legível
-        const cpf = decrypt({
-            storedIv: user.cpf_iv,
-            storedTag: user.cpf_tag,
-            storedValue: user.cpf,
-        });
+        const cpf = decrypt({ storedIv: user.cpf_iv, storedTag: user.cpf_tag, storedValue: user.cpf });
 
-        return res.json({
-            id: user.id,
-            fullName: user.full_name,
-            birthDate: user.birth_date,
-            email: user.email,
-            phoneNumber: user.phone_number,
-            cpf,
-        });
+        return res.json({ id: user.id, fullName: user.full_name, birthDate: user.birth_date, email: user.email, phoneNumber: user.phone_number, cpf });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: "Erro ao buscar usuário." });
     }
 }
 
+async function create(req, res) {
+    try {
+        const { fullName, birthDate, email, phoneNumber, password, cpf } = req.body;
+        const { salt, hash } = await generatePasswordHash(password); // sem volta
+        const { iv, tag, encryptedValue } = encrypt(cpf);            // com volta
+        const id = await userModel.create({ cpf: encryptedValue, cpfIv: iv, cpfTag: tag, fullName, birthDate, email, phoneNumber, passwordSalt: salt, passwordHash: hash });
+
+        return res.status(201).json({ message: "Usuário cadastrado com sucesso!", id });
+    } catch (error) {
+        if (isDuplicateError(error)) {
+            return res.status(409).json({ error: "E-mail ou telefone já cadastrado." });
+        }
+        console.error(error);
+        return res.status(500).json({ error: "Erro ao cadastrar usuário." });
+    }
+}
+
 async function update(req, res) {
     try {
         const { fullName, birthDate, email, phoneNumber, cpf } = req.body;
-
         // novo iv a cada criptografia: nunca reaproveitamos o antigo
         const { iv, tag, encryptedValue } = encrypt(cpf);
-
-        const affectedRows = await userModel.update(req.params.id, {
-            cpf: encryptedValue,
-            cpfIv: iv,
-            cpfTag: tag,
-            fullName,
-            birthDate,
-            email,
-            phoneNumber,
-        });
+        const affectedRows = await userModel.update(req.params.id, { cpf: encryptedValue, cpfIv: iv, cpfTag: tag, fullName, birthDate, email, phoneNumber });
 
         if (affectedRows === 0) {
             return res.status(404).json({ error: "Usuário não encontrado." });
