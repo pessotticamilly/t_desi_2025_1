@@ -47,7 +47,7 @@ async function criar(req, res) {
     try {
         const { cpf, nomeCompleto, dataAniversario, email, telefone, senha } = req.body;
         const { salt, hash } = await gerarHashSenha(senha);
-        const { iv, tag, cpfCriptografado } = criptografar(cpf);
+        const { iv: cpfIv, tag: cpfTag, valorCriptografado: cpfCriptografado } = criptografar(cpf);
 
         await usuariosModel.criar({
             cpf: cpfCriptografado, 

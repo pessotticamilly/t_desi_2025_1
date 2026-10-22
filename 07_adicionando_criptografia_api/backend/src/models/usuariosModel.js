@@ -11,7 +11,11 @@ async function buscarTodos() {
 };
 
 async function buscarPorId(id) {
-    const sql = `SELECT * FROM usuarios WHERE id = ?;`;
+    const sql = `
+        SELECT * 
+        FROM usuarios 
+        WHERE id = ?;
+    `;
     const [resultado] = await bd.execute(sql, [id]);
 
     return resultado;
@@ -32,7 +36,10 @@ async function criar({ cpf, cpfIv, cpfTag, nomeCompleto, dataAniversario, email,
 async function editar() {};
 
 async function excluir(id) {
-    const sql = `DELETE FROM usuarios WHERE id = ?;`;
+    const sql = `
+        DELETE FROM usuarios 
+        WHERE id = ?;
+    `;
     const [resultado] = await bd.execute(sql, [id]);
 
     return resultado.affectedRows;
