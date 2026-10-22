@@ -12,6 +12,6 @@ CREATE TABLE usuarios (
     dataNascimento DATE NOT NULL,
     email VARCHAR(200) NOT NULL UNIQUE,
     telefone BIGINT NOT NULL UNIQUE,
-    senhaSalt BINARY(16) NOT NULL
-    senhaHash BINARY(64) NOT NULL,
+    senhaSalt BINARY(16) NOT NULL,
+    senhaHash BINARY(64) NOT NULL
 );
