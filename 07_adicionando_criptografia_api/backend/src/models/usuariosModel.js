@@ -33,7 +33,39 @@ async function criar({ cpf, cpfIv, cpfTag, nomeCompleto, dataAniversario, email,
     return resultado;
 };
 
-async function editar() {};
+async function editar(id, dados) {
+    const camposPermitidos = [
+        "cpf", 
+        "cpfIv", 
+        "cpfTag", 
+        "nomeCompleto", 
+        "dataAniversario", 
+        "email", 
+        "telefone", 
+        "senhaHash", 
+        "senhaSalt"
+    ];
+    const campos = Object.keys(dados);
+    
+    // campos.some() --> verifica se pelo menos UM campo atende x condição
+    // camposPermitidos.includes(campo) --> verifica se o campo existe na lista
+    // ! --> valor invertido
+    if(campos.length === 0 || campos.some(campo => !camposPermitidos.includes(campo))) {
+        throw new Error("Variáveis de atualização inválidos");
+    };
+
+    const atribuicoes = campos.map(campo => `\'${campo}\' = ?`).join(", ");
+    const valores = campos.map(campo => dados[campo]);
+    const sql = `
+        UPDATE usuarios
+        SET ${atribuicoes}
+        WHERE id = ?;
+    `;
+    // spread operator
+    const [resultado] = await bd.execute(sql, [...valores, id]);
+
+    return resultado;
+};
 
 async function excluir(id) {
     const sql = `
@@ -49,5 +81,6 @@ module.exports = {
     buscarTodos,
     buscarPorId,
     criar,
+    editar,
     excluir
 };

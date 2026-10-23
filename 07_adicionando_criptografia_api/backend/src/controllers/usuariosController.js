@@ -1,6 +1,6 @@
 const usuariosModel = require("../models/usuariosModel");
-const { gerarHashSenha, verificarHashSenha } = require("../utils/crypto/hash");
-const { criptografar, descriptografar } = require("../utils/crypto/criptografia");
+const { gerarHashSenha, verificarHashSenha } = require("../utils/security/hash");
+const { criptografar, descriptografar } = require("../utils/security/criptografia");
 
 async function buscarTodos(req, res) {
     try {
@@ -41,8 +41,6 @@ const buscarPorId = async (req, res) => {
     };
 };
 
-async function editar(req, res) {};
-
 async function criar(req, res) {
     try {
         const { cpf, nomeCompleto, dataAniversario, email, telefone, senha } = req.body;
@@ -67,6 +65,62 @@ async function criar(req, res) {
     } catch(error) {
         console.log(error);
         return res.status(500).json({error: "Erro ao criar usuário"});
+    };
+};
+
+async function editar(req, res) {
+    try {
+        const id = req.params.id;
+        const usuario = await usuariosModel.buscarPorId(id);
+
+        if(!usuario) {
+            return res.status(404).json({
+                error: "Usuário não encontrado"
+            });
+        };
+
+        const { cpf, nomeCompleto, dataNascimento, email, telefone, senha } = req.body;
+        const dadosAtualizados = {};
+
+        if(nomeCompleto !== undefined) {
+            dadosAtualizados.nomeCompleto = nomeCompleto;
+        };
+
+        if(dataNascimento !== undefined) {
+            dadosAtualizados.dataNascimento = dataNascimento;
+        };
+
+        if(email !== undefined) {
+            dadosAtualizados.email = email;
+        };
+
+        if(telefone !== undefined) {
+            dadosAtualizados.telefone = telefone;
+        };
+
+        if(cpf !== undefined) {
+            const { iv: cpfIv, tag: cpfTag, valorCriptografado: cpfCriptografado } = criptografar(cpf);
+            dadosAtualizados.cpf = cpfCriptografado;
+            dadosAtualizados.cpfIv = cpfIv;
+            dadosAtualizados.cpfTag = cpfTag;
+        };
+
+        if(senha !== undefined) {
+            const { salt: senhaSalt, hash: senhaHash } = gerarHashSenha(senha);
+            dadosAtualizados.senhaSalt = senhaSalt;
+            dadosAtualizados.senhaHash = senhaHash;
+        };
+
+        await usuariosModel.editar(id, dadosAtualizados);
+
+        return res.json({
+            mensagem: "Usuário editado com sucesso"
+        });
+    } catch(error) {
+        console.log(error);
+        return res.status(500).json({
+            mensagem: "Erro ao editar usuário"
+        });
     };
 };
 
