@@ -28,7 +28,7 @@ npm install node nodemon express dotenv mysql2
 
 Não compartilhe o arquivo `.env` nem inclua credenciais reais no repositório.
 
-### Rotas
+## Rotas
 Base: `/products`
 
 | Método | Rota | Descrição |
@@ -44,7 +44,7 @@ Base: `/products`
 
 Os filtros por categoria e situação são independentes. Envie apenas um deles por requisição.
 
-#### Exemplo de corpo para POST/PUT
+### Exemplo de corpo para POST/PUT
 ```json
 {
   "name": "Teclado USB",
