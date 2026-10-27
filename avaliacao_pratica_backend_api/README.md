@@ -35,7 +35,7 @@ Base: `/products`
 |--- |--- |--- |
 | GET | `/products` | Lista produtos |
 | GET | `/products?categoryId=1` | Filtra por categoria |
-| GET | `/products?status=baixo` | Filtra por situação: `normal_stock`, `low_stock` ou `out_of_stock` |
+| GET | `/products?status=normal_stock` | Filtra por situação: `normal_stock`, `low_stock` ou `out_of_stock` |
 | GET | `/products/:id` | Consulta um produto |
 | POST | `/products` | Cadastra um produto |
 | PUT | `/products/:id` | Atualização completa |
