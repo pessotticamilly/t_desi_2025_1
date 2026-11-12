@@ -91,66 +91,53 @@ async function editar(req, res) {
         const id = req.params.id;
         const usuario = await usuariosModel.buscarPorId(id);
 
-        if (!usuario) {
+        if(!usuario) {
             return res.status(404).json({
                 error: "Usuário não encontrado"
             });
-        }
+        };
 
-        const { cpf, nomeCompleto, dataNascimento, email, telefone, senha} = req.body;
+        const { cpf, nomeCompleto, dataNascimento, email, telefone, senha } = req.body;
         const dadosAtualizados = {};
 
-        // 2. Atualiza os campos comuns, se enviados
-        if (nomeCompleto !== undefined) {
+        if(nomeCompleto !== undefined) {
             dadosAtualizados.nomeCompleto = nomeCompleto;
-        }
+        };
 
-        if (dataNascimento !== undefined) {
+        if(dataNascimento !== undefined) {
             dadosAtualizados.dataNascimento = dataNascimento;
-        }
+        };
 
-        if (email !== undefined) {
+        if(email !== undefined) {
             dadosAtualizados.email = email;
-        }
+        };
 
-        if (telefone !== undefined) {
+        if(telefone !== undefined) {
             dadosAtualizados.telefone = telefone;
-        }
+        };
 
-        // 3. Criptografa o novo CPF, se enviado
-        if (cpf !== undefined) {
+        if(cpf !== undefined) {
             const { iv: cpfIv, tag: cpfTag, valorCriptografado: cpfCriptografado } = criptografar(cpf);
-
             dadosAtualizados.cpf = cpfCriptografado;
             dadosAtualizados.cpfIv = cpfIv;
             dadosAtualizados.cpfTag = cpfTag;
-        }
+        };
 
-        // 4. Gera um novo hash, se a senha foi enviada
-        if (senha !== undefined) {
-            const { salt: senhaSalt, hash: senhaHash } = await gerarHashSenha(senha);
-
+        if(senha !== undefined) {
+            const { salt: senhaSalt, hash: senhaHash } = gerarHashSenha(senha);
             dadosAtualizados.senhaSalt = senhaSalt;
             dadosAtualizados.senhaHash = senhaHash;
-        }
+        };
 
-        // 5. Não permite uma atualização vazia
-        if (Object.keys(dadosAtualizados).length === 0) {
-            return res.status(400).json({
-                error: "Nenhum campo enviado para atualização"
-            });
-        }
-
-        // 6. Envia os campos ao Model
         await usuariosModel.editar(id, dadosAtualizados);
 
-        return res.status(200).json({
-            mensagem: "Usuário atualizado com sucesso"
+        return res.json({
+            mensagem: "Usuário editado com sucesso"
         });
-    } catch (error) {
-        console.error(error);
+    } catch(error) {
+        console.log(error);
         return res.status(500).json({
-            error: "Erro ao editar usuário"
+            mensagem: "Erro ao editar usuário"
         });
     };
 };

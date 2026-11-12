@@ -19,7 +19,7 @@ async function buscarPorId(id) {
     const [resultado] = await bd.execute(sql, [id]);
 
     return resultado[0];
-
+};
 
 async function criar({ cpf, cpfIv, cpfTag, nomeCompleto, dataNascimento, email, telefone, senhaHash, senhaSalt }) {
     const sql = `
@@ -33,40 +33,36 @@ async function criar({ cpf, cpfIv, cpfTag, nomeCompleto, dataNascimento, email, 
 
 async function editar(id, dados) {
     const camposPermitidos = [
-        "cpf",
-        "cpfIv",
-        "cpfTag",
-        "nomeCompleto",
-        "dataNascimento",
-        "email",
-        "telefone",
-        "senhaHash",
+        "cpf", 
+        "cpfIv", 
+        "cpfTag", 
+        "nomeCompleto", 
+        "dataAniversario", 
+        "email", 
+        "telefone", 
+        "senhaHash", 
         "senhaSalt"
     ];
     const campos = Object.keys(dados);
+    
+    // campos.some() --> verifica se pelo menos UM campo atende x condição
+    // camposPermitidos.includes(campo) --> verifica se o campo existe na lista
+    // ! --> valor invertido
+    if(campos.length === 0 || campos.some(campo => !camposPermitidos.includes(campo))) {
+        throw new Error("Variáveis de atualização inválidos");
+    };
 
-    if (campos.length === 0 || campos.some(campo => !camposPermitidos.includes(campo))) {
-        throw new Error("Campos de atualização inválidos");
-    }
-
-    const atribuicoes = campos.map(campo => `\`${campo}\` = ?`).join(", ");
+    const atribuicoes = campos.map(campo => `\'${campo}\' = ?`).join(", ");
     const valores = campos.map(campo => dados[campo]);
     const sql = `
         UPDATE usuarios
         SET ${atribuicoes}
         WHERE id = ?;
     `;
+    // spread operator
+    const [resultado] = await bd.execute(sql, [...valores, id]);
 
-    console.log("atribuicoes:\n", atribuicoes)
-    console.log("valores:\n", valores)
-    console.log("sql:\n", sql)
-
-    const [resultado] = await bd.execute(sql, [
-        ...valores,
-        id
-    ]);
-
-    return resultado.affectedRows;
+    return resultado;
 };
 
 async function excluir(id) {
