@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 16px;
+    background: #f4f4f4;
+    color: #222;
+}
+
+h1,
+h2 {
+    color: #263238;
+}
+
+section {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+input,
+textarea,
+button {
+    font: inherit;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+input,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    border: 0;
+    border-radius: 4px;
+    background: #1565c0;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button.excluir {
+    background: #c62828;
+}
+
+button.editar {
+    background: #ef6c00;
+}
+
+button.secundario {
+    background: #546e7a;
+}
+
+#mensagem {
+    font-weight: bold;
+}
+
+.sucesso {
+    color: #2e7d32;
+}
+
+.erro {
+    color: #c62828;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    background: white;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #eceff1;
+}
+
+.acoes {
+    white-space: nowrap;
+}

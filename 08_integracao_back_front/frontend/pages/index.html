@@ -1,12 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro de Produtos</title>
+    <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
 </head>
 <body>
-    
+    <h1>Cadastro de Produtos</h1>
+    <p>Exemplo de integração entre frontend e API utilizando Fetch API.</p>
+
+    <section>
+        <h2 id="tituloFormulario">Cadastrar produto</h2>
+
+        <form id="formProduto">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" required>
+
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" rows="3" required></textarea>
+
+            <label for="preco">Preço</label>
+            <input type="number" id="preco" min="0" step="0.01" required>
+
+            <button type="submit" id="botaoSalvar">Cadastrar</button>
+            <button type="button" class="secundario" id="botaoCancelar" hidden>
+                Cancelar edição
+            </button>
+        </form>
+
+        <p id="mensagem"></p>
+    </section>
+
+    <section>
+        <h2>Consultar produto por ID</h2>
+        <input type="number" id="idBusca" min="1" placeholder="Digite o ID do produto">
+        <button type="button" id="botaoBuscar">Buscar</button>
+        <button type="button" class="secundario" id="botaoListar">Listar todos</button>
+        <div id="resultadoBusca"></div>
+    </section>
+
+    <section>
+        <h2>Produtos cadastrados</h2>
+        <button type="button" id="botaoAtualizarLista">Atualizar listagem</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="listaProdutos">
+                <tr><td colspan="5">Carregando produtos...</td></tr>
+            </tbody>
+        </table>
+    </section>
 </body>
 </html>
