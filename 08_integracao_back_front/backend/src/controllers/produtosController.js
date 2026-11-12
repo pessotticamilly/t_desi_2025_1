@@ -41,7 +41,7 @@ async function criarProduto(req, res) {
         const produto = await produtosModel.criarProduto(nome, descricao, preco);
 
         return res.status(201).json({
-            id: produto.insertedId,
+            id: produto.insertId,
             nome: nome,
             descricao: descricao,
             preco: preco
