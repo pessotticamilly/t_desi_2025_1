@@ -15,10 +15,19 @@ const resultadoBusca = document.getElementById("resultadoBusca");
 const botaoAtualizarLista = document.getElementById("botaoAtualizarLista");
 const listaProdutos = document.getElementById("listaProdutos");
 
+let idProdutoEditando = null;
+
 function mostrarMensagem(texto, ehErro = false) {
     mensagem.textContent = texto;
     mensagem.className = ehErro ? 'erro' : 'sucesso';
 }
+
+function limparFormulario() {
+    formProduto.reset();
+    idProdutoEditando = null;
+    tituloFormulario.textContent = "Cadastrar produto";
+    botaoSalvar.textContent = "Cadastrar";
+};
 
 async function buscarTodosProdutos() {
     try {
@@ -97,7 +106,7 @@ async function buscarProdutoPorId() {
     };
 };
 
-async function cadastrarProduto(dadosProduto){
+async function cadastrarProduto(dadosProduto) {
     const resposta = await fetch(`${API_URL}/produtos`, {
         method: 'POST',
         headers: {
@@ -111,26 +120,78 @@ async function cadastrarProduto(dadosProduto){
     };
 
     const resultado = await resposta.json();
+
     return resultado;
 };
 
-buscarTodosProdutos();
+async function prepararEdicao(id) {
+    try {
+        const resposta = await fetch(`${API_URL}/produtos/${id}`);
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao buscar produto");
+        };
+
+        const dados = await resposta.json();
+        const produto = dados[0];
+
+        idProdutoEditando = produto.id;
+
+        nome.value = produto.nome;
+        descricao.value = produto.descricao;
+        preco.value = produto.preco;
+
+        tituloFormulario.textContent = "Editar Produto";
+        botaoSalvar.textContent = "Salvar alterações";
+
+        window.scrollTo(0, 0);
+    } catch(erro) {
+        mostrarMensagem(erro.message, true);
+    };
+};
+
+async function editarProduto(id, dadosProduto) {
+    const resposta = await fetch(`${API_URL}/produtos/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dadosProduto)
+    });
+
+    if(!resposta.ok) {
+        throw new Error("Erro ao editar produto");
+    };
+
+    const resultado = await resposta.json();
+
+    return resultado;
+};
 
 botaoBuscar.addEventListener("click", buscarProdutoPorId);
 formProduto.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const dadosProdutos = {
+    const dadosProduto = {
         nome: nome.value,
         descricao: descricao.value,
         preco: preco.value
     };
 
     try {
-        await cadastrarProduto(dadosProdutos);
-        mostrarMensagem('Produto cadastrado com sucesso');
+        if(idProdutoEditando === null) {
+            await cadastrarProduto(dadosProduto);
+            mostrarMensagem('Produto cadastrado com sucesso');
+        } else {
+            await editarProduto(idProdutoEditando, dadosProduto);
+            mostrarMensagem('Produto editado com sucesso')
+        };
+        
+        limparFormulario();
         buscarTodosProdutos();
     } catch(erro) {
         mostrarMensagem(erro.message, true);
     };
 });
+
+buscarTodosProdutos();
